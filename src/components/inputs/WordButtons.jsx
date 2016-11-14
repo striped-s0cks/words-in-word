@@ -6,6 +6,10 @@ import './WordButtons.less';
 
 export default class WordButtons extends React.Component {
     render() {
+        const {
+            onInputClear
+        } = this.props;
+
         return (
             <div className='WordButtons'>
                 <ButtonToolbar className='buttons'>
@@ -17,7 +21,8 @@ export default class WordButtons extends React.Component {
 
                     <Button
                         className = 'clearButton'
-                        bsStyle   = 'primary'>
+                        bsStyle   = 'primary'
+                        onClick   = {onInputClear}>
                             Clear
                     </Button>
 
