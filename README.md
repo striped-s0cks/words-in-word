@@ -1,4 +1,4 @@
-# WORDS IN WORD GAME
+# WORDS IN A WORD GAME
 ------------------------------------
 
 Built with React, Redux, Webpack.
