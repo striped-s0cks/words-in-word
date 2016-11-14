@@ -7,7 +7,10 @@ import './InitialWord.less';
 export default class InitialWord extends React.Component {
     render() {
         const {
-            value
+            value,
+            isEdited,
+
+            onCharClick
         } = this.props;
 
         const chars = value ? value.split('') : [];
@@ -20,7 +23,9 @@ export default class InitialWord extends React.Component {
                             <CharBox
                                 key         = {key}
                                 value       = {item}
-                                onCharClick = {this.props.onCharClick} />
+                                isEdited    = {isEdited}
+
+                                onCharClick = {onCharClick} />
                         );
                     })
                 }
