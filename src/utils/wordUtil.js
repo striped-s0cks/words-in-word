@@ -29,7 +29,7 @@ function getAllWords(word) {
         if ( ( words.indexOf(joined) > -1 ) && ( joined !== word ) ) {
             allWords.push({
                 value: joined,
-                isShown: true
+                isShown: false
             });
         }
     });
