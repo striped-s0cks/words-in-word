@@ -11,6 +11,14 @@ export default class CharBox extends React.Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if ( !nextProps.isEdited ) {
+            this.setState({
+                isClicked: false
+            });
+        }
+    }
+
     handleClick() {
         if ( !this.state.isClicked ) {
             this.setState({
