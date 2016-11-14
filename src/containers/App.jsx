@@ -3,6 +3,7 @@ import React from 'react';
 import actions     from '../actions';
 import { connect } from 'react-redux';
 
+import WordButtons from '../components/inputs/WordButtons.jsx';
 import InitialWord from '../components/other/InitialWord.jsx';
 import UserWord    from '../components/inputs/UserWord.jsx';
 import AllWords    from '../components/other/AllWords.jsx';
@@ -17,8 +18,11 @@ class App extends React.Component {
     render() {
         return (
             <div className='App'>
+                <WordButtons />
+
                 <InitialWord
                     value       = {this.props.initialWord}
+                    isEdited    = {this.props.status.isEdited}
                     onCharClick = {this.handleCharClick.bind(this)} />
 
                 <UserWord
@@ -35,7 +39,8 @@ function mapStateToProps(state) {
     return {
         initialWord: state.initialWord,
         words:       state.words,
-        userInput:   state.userInput
+        userInput:   state.userInput,
+        status:      state.status
     };
 }
 
