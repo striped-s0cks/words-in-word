@@ -27,8 +27,8 @@ module.exports = {
             { test: /\.png$/, loader: "url-loader?limit=10000&mimetype=image/png" },
             { test: /\.svg/, loader: "url-loader?limit=26000&mimetype=image/svg+xml" },
             { test: /\.(woff|woff2|ttf|eot)/, loader: "url-loader?limit=1" },
-            { test: /\.jsx$/, loader: "react-hot!babel!eslint-loader", exclude: [/node_modules/ },
-            { test: /\.js$/, loader: "babel!eslint-loader", exclude: [/node_modules/ },
+            { test: /\.jsx$/, loader: "react-hot!babel!eslint-loader", exclude: [/node_modules/] },
+            { test: /\.js$/, loader: "babel!eslint-loader", exclude: [/node_modules/] },
             { test: /\.json$/, loader: "json-loader"}
         ]
     },
