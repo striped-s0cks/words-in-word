@@ -19,6 +19,7 @@ const initialState = {
 export default function word( state = initialState, action ) {
     switch (action.type) {
         case ec.WORD_INPUT_VALUE: return inputValue(state, action.data);
+        case ec.WORD_CLEAR_INPUT: return clearInput(state);
 
         default: return state;
     }
@@ -38,6 +39,15 @@ function inputValue(state, data) {
         acceptableWord.isShown = true;
         updatedState.status.isEdited = false;
     }
+
+    return updatedState;
+}
+
+function clearInput(state) {
+    const updatedState = _.cloneDeep(state);
+
+    updatedState.userInput = '';
+    updatedState.status.isEdited = false;
 
     return updatedState;
 }
