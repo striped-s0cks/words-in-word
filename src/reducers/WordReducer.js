@@ -1,4 +1,4 @@
-import _  from 'lodash';
+import _ from 'lodash';
 
 import ec       from '../eventConstants';
 import wordUtil from '../utils/wordUtil.js';
@@ -8,7 +8,11 @@ const initialWord = wordUtil.getRandomWord();
 const initialState = {
     initialWord,
     words:       wordUtil.getAllWords(initialWord),
-    userInput:   ''
+    userInput:   '',
+
+    status: {
+        isEdited: false
+    }
 };
 
 /*eslint-disable */
@@ -25,6 +29,15 @@ function inputValue(state, data) {
     const updatedState = _.cloneDeep(state);
 
     updatedState.userInput += data;
+    updatedState.status.isEdited = true;
+
+    const acceptableWord = _.find( updatedState.words, { value: updatedState.userInput } );
+
+    if ( acceptableWord && !acceptableWord.isShown ) {
+        updatedState.userInput = '';
+        acceptableWord.isShown = true;
+        updatedState.status.isEdited = false;
+    }
 
     return updatedState;
 }
