@@ -1,5 +1,4 @@
-import cmb from 'js-combinatorics';
-import _   from 'lodash';
+import _ from 'lodash';
 
 import words from './words';
 
@@ -59,13 +58,14 @@ function getAllWords(word) {
                 allWords.push({
                     value: allowedWord,
                     isShown: false,
+                    length: allowedWord.length, // for easy sorting
                     chars
                 });
             }
         }
     });
 
-    return allWords;
+    return _.sortBy(allWords, ['length', 'value']);
 }
 
 module.exports = {
