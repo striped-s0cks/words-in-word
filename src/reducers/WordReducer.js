@@ -20,6 +20,7 @@ export default function word( state = initialState, action ) {
     switch (action.type) {
         case ec.WORD_INPUT_VALUE: return inputValue(state, action.data);
         case ec.WORD_CLEAR_INPUT: return clearInput(state);
+        case ec.WORD_HELP:        return help(state);
 
         default: return state;
     }
@@ -37,6 +38,11 @@ function inputValue(state, data) {
     if ( acceptableWord && !acceptableWord.isShown ) {
         updatedState.userInput = '';
         acceptableWord.isShown = true;
+
+        acceptableWord.chars.forEach( item => {
+            item.isShown = true;
+        });
+
         updatedState.status.isEdited = false;
     }
 
@@ -50,4 +56,52 @@ function clearInput(state) {
     updatedState.status.isEdited = false;
 
     return updatedState;
+}
+
+function help(state) {
+    const updatedState = _.cloneDeep(state);
+
+    _showOneChar(updatedState);
+
+    return updatedState;
+}
+
+function _showOneChar(state) {
+    const hiddenWord = _findHiddenWord(state);
+
+    if ( hiddenWord ) {
+        const hiddenChars = [];
+
+        hiddenWord.chars.forEach( letter => {
+            if ( !letter.isShown ) {
+                hiddenChars.push(letter);
+            }
+        });
+
+        if ( hiddenChars.length ) {
+            const hiddenChar = hiddenChars[ Math.floor( Math.random() * hiddenChars.length ) ];
+
+            hiddenChar.isShown = true;
+
+            if ( hiddenChars.length === 1 ) {
+                hiddenWord.isShown = true;
+            }
+        }
+    }
+}
+
+function _findHiddenWord(state) {
+    const hiddenWords = [];
+
+    state.words.forEach( item => {
+        if ( !item.isShown ) {
+            hiddenWords.push(item);
+        }
+    });
+
+    if ( hiddenWords.length ) {
+        return hiddenWords[ Math.floor( Math.random() * hiddenWords.length ) ];
+    }
+
+    return;
 }
