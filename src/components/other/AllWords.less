@@ -1,21 +1,28 @@
 .AllWords {
-    -moz-column-width: 10em;
-    -webkit-column-width: 10em;
-    column-width: 10em;
     text-align: center;
-
     background-color: #717171;
     border-radius: 20px;
     max-width: 80vw;
     min-width: 200px;
     padding: 20px;
 
-    ul {
-        list-style-type: none;
-        padding: 0px;
+    .list {
+        -moz-column-width: 10em;
+        -webkit-column-width: 10em;
+        column-width: 10em;
+
+        ul {
+            list-style-type: none;
+            padding: 0px;
+        }
+
+        ul li:first-child {
+            margin-top:0px;
+        }
     }
 
-    ul li:first-child {
-        margin-top:0px;
+    .warning {
+        font-size: 30px;
+        color: yellow;
     }
 }
