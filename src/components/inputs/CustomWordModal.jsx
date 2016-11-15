@@ -3,8 +3,6 @@ import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 const ENTER_CODE = 13;
-const A_CHAR = 65;
-const Z_CHAR = 90;
 
 import './CustomWordModal.less';
 
@@ -18,10 +16,6 @@ export default class CustomWordModal extends React.Component {
     handleKeyDown(e) {
         if ( e.keyCode === ENTER_CODE ) {
             this.handleSubmit();
-        }
-
-        if ( e.keyCode < A_CHAR || e.keyCode > Z_CHAR ) {
-            e.preventDefault();
         }
     }
 
@@ -49,7 +43,8 @@ export default class CustomWordModal extends React.Component {
                         type        = 'text'
                         placeholder = 'Your word'
                         pattern     = '[a-zA-Z]*'
-                        onKeyDown   = {this.handleKeyDown.bind(this)} />
+                        onKeyDown   = {this.handleKeyDown.bind(this)}
+                        required />
                 </Modal.Body>
 
                 <Modal.Footer>
