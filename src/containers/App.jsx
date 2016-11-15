@@ -3,14 +3,23 @@ import React from 'react';
 import actions     from '../actions';
 import { connect } from 'react-redux';
 
-import WordButtons from '../components/inputs/WordButtons.jsx';
-import InitialWord from '../components/other/InitialWord.jsx';
-import UserWord    from '../components/inputs/UserWord.jsx';
-import AllWords    from '../components/other/AllWords.jsx';
+import WordButtons     from '../components/inputs/WordButtons.jsx';
+import InitialWord     from '../components/other/InitialWord.jsx';
+import UserWord        from '../components/inputs/UserWord.jsx';
+import AllWords        from '../components/other/AllWords.jsx';
+import CustomWordModal from '../components/inputs/CustomWordModal.jsx';
 
 import './App.less';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isModalOpen: false
+        };
+    }
+
     handleCharClick(value) {
         this.props.inputValue(value);
     }
@@ -27,13 +36,34 @@ class App extends React.Component {
         this.props.generate();
     }
 
+    handleModelOpen() {
+        this.setState({
+            isModalOpen: true
+        });
+    }
+
+    handleModalClose() {
+        this.setState({
+            isModalOpen: false
+        });
+    }
+
+    handleCustomInput(customWord) {
+        this.setState({
+            isModalOpen: false
+        });
+
+        this.props.inputCustom(customWord);
+    }
+
     render() {
         return (
             <div className='App'>
                 <WordButtons
                     onInputClear = {this.handleInputClear.bind(this)}
                     onHelp       = {this.handleHelp.bind(this)}
-                    onGenerate   = {this.handleWordGenerate.bind(this)} />
+                    onGenerate   = {this.handleWordGenerate.bind(this)}
+                    onModalOpen  = {this.handleModelOpen.bind(this)} />
 
                 <InitialWord
                     value       = {this.props.initialWord}
@@ -45,6 +75,11 @@ class App extends React.Component {
 
                 <AllWords
                     words = {this.props.words} />
+
+                <CustomWordModal
+                    isOpen   = {this.state.isModalOpen}
+                    onHide   = {this.handleModalClose.bind(this)}
+                    onSubmit = {this.handleCustomInput.bind(this)} />
             </div>
         );
     }
@@ -75,6 +110,10 @@ function mapDispatchToProps(dispatch) {
 
         generate: () => {
             dispatch(actions.word.generate());
+        },
+
+        inputCustom: (customWord) => {
+            dispatch(actions.word.inputCustom(customWord));
         }
     };
 }
