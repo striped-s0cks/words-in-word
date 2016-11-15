@@ -12,5 +12,11 @@ export default {
         return {
             type: ec.WORD_CLEAR_INPUT
         };
+    },
+
+    help() {
+        return {
+            type: ec.WORD_HELP
+        };
     }
 };
