@@ -27,9 +27,17 @@ function getAllWords(word) {
         const joined = item.join('');
 
         if ( ( words.indexOf(joined) > -1 ) && ( joined !== word ) ) {
+            const chars = item.map( letter => {
+                return {
+                    value: letter,
+                    isShown: false
+                };
+            });
+
             allWords.push({
                 value: joined,
-                isShown: false
+                isShown: false,
+                chars
             });
         }
     });
