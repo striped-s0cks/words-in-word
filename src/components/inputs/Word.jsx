@@ -16,12 +16,12 @@ export default class Word extends React.Component {
     }
 
     _hideWord() {
-        let hidenWord = '';
+        let hiddenWord = '';
 
-        this.props.value.value.split('').forEach( () => {
-            hidenWord += '_';
+        this.props.value.chars.forEach( item => {
+            hiddenWord += item.isShown ? item.value : '_';
         });
 
-        return hidenWord;
+        return hiddenWord;
     }
 }
