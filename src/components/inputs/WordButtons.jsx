@@ -7,7 +7,8 @@ import './WordButtons.less';
 export default class WordButtons extends React.Component {
     render() {
         const {
-            onInputClear
+            onInputClear,
+            onHelp
         } = this.props;
 
         return (
@@ -28,7 +29,8 @@ export default class WordButtons extends React.Component {
 
                     <Button
                         className = 'helpButton'
-                        bsStyle   = 'primary'>
+                        bsStyle   = 'primary'
+                        onClick   = {onHelp}>
                             Help
                     </Button>
                 </ButtonToolbar>
