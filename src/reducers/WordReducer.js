@@ -18,10 +18,11 @@ const initialState = {
 /*eslint-disable */
 export default function word( state = initialState, action ) {
     switch (action.type) {
-        case ec.WORD_INPUT_VALUE: return inputValue(state, action.data);
-        case ec.WORD_CLEAR_INPUT: return clearInput(state);
-        case ec.WORD_HELP:        return help(state);
-        case ec.WORD_GENERATE:    return generate(state);
+        case ec.WORD_INPUT_VALUE:  return inputValue(state, action.data);
+        case ec.WORD_CLEAR_INPUT:  return clearInput(state);
+        case ec.WORD_HELP:         return help(state);
+        case ec.WORD_GENERATE:     return generate(state);
+        case ec.WORD_INPUT_CUSTOM: return inputCustomWord(state, action.data);
 
         default: return state;
     }
@@ -74,6 +75,17 @@ function generate(state) {
 
     updatedState.initialWord = generatedWord;
     updatedState.words = wordUtil.getAllWords(generatedWord);
+    updatedState.userInput = '';
+    updatedState.status.isEdited = false;
+
+    return updatedState;
+}
+
+function inputCustomWord(state, data) {
+    const updatedState = _.cloneDeep(state);
+
+    updatedState.initialWord = data;
+    updatedState.words = wordUtil.getAllWords(data);
     updatedState.userInput = '';
     updatedState.status.isEdited = false;
 
