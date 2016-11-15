@@ -20,29 +20,52 @@ function getRandomWord() {
 }
 
 function getAllWords(word) {
-    const subsets = cmb.permutationCombination(word.split(''));
     const allWords = [];
+    const wordMap = {};
 
-    subsets.forEach( item => {
-        const joined = item.join('');
+    word.split('').forEach( letter => {
+        wordMap[letter] = wordMap[letter] || 0;
 
-        if ( ( words.indexOf(joined) > -1 ) && ( joined !== word ) ) {
-            const chars = item.map( letter => {
-                return {
-                    value: letter,
-                    isShown: false
-                };
+        wordMap[letter]++;
+    });
+
+    words.forEach( allowedWord => {
+        if ( ( allowedWord.length <= word.length ) && ( allowedWord !== word ) ) {
+            const wordMapCopy = _.cloneDeep(wordMap);
+            const letters = allowedWord.split('');
+
+            letters.forEach( letter => {
+                wordMapCopy[letter] = wordMapCopy[letter] || 0;
+
+                wordMapCopy[letter]--;
             });
 
-            allWords.push({
-                value: joined,
-                isShown: false,
-                chars
-            });
+            let hasOtherChars;
+
+            for ( const letter in wordMapCopy ) {
+                if ( wordMapCopy.hasOwnProperty(letter) && wordMapCopy[letter] < 0 ) {
+                    hasOtherChars = true;
+                }
+            }
+
+            if ( !hasOtherChars ) {
+                const chars = letters.map( letter => {
+                    return {
+                        value: letter,
+                        isShown: false
+                    };
+                });
+
+                allWords.push({
+                    value: allowedWord,
+                    isShown: false,
+                    chars
+                });
+            }
         }
     });
 
-    return _.uniqBy(allWords, 'value');
+    return allWords;
 }
 
 module.exports = {
