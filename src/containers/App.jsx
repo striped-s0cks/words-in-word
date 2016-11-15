@@ -19,11 +19,16 @@ class App extends React.Component {
         this.props.clearInput();
     }
 
+    handleHelp() {
+        this.props.help();
+    }
+
     render() {
         return (
             <div className='App'>
                 <WordButtons
-                    onInputClear = {this.handleInputClear.bind(this)} />
+                    onInputClear = {this.handleInputClear.bind(this)}
+                    onHelp       = {this.handleHelp.bind(this)} />
 
                 <InitialWord
                     value       = {this.props.initialWord}
@@ -57,6 +62,10 @@ function mapDispatchToProps(dispatch) {
 
         clearInput: () => {
             dispatch(actions.word.clearInput());
+        },
+
+        help: () => {
+            dispatch(actions.word.help());
         }
     };
 }
