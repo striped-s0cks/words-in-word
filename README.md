@@ -5,7 +5,7 @@ Built with React, Redux, Webpack.
 
 Demo - https://yanasavchenko.github.io/words-in-word/
 
-_Instead of [yarn](https://github.com/yarnpkg/yarn) you could use npm_** - npm install, npm run devserver, npm run build.
+**_Instead of [yarn](https://github.com/yarnpkg/yarn) you could use npm_** - npm install, npm run devserver, npm run build.
 
 ## HOW TO START
 1. yarn
