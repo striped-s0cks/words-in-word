@@ -18,5 +18,11 @@ export default {
         return {
             type: ec.WORD_HELP
         };
+    },
+
+    generate() {
+        return {
+            type: ec.WORD_GENERATE
+        };
     }
 };
