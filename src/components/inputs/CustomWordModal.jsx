@@ -9,7 +9,7 @@ import './CustomWordModal.less';
 export default class CustomWordModal extends React.Component {
     handleSubmit() {
         if ( this.refs.input.validity.valid ) {
-            this.props.onSubmit(this.refs.input.value);
+            this.props.onSubmit(this.refs.input.value.toLowerCase());
         }
     }
 
