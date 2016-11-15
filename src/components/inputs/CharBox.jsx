@@ -30,14 +30,15 @@ export default class CharBox extends React.Component {
     }
 
     render() {
+        const classes = 'char' + (this.state.isClicked ? ' clicked' : '');
+
         return (
             <div className='CharBox'>
-                <input
-                    className = {this.state.isClicked ? 'clicked' : ''}
-                    value     = {this.props.value}
-                    type      = 'text'
-                    onClick   = {this.handleClick.bind(this)}
-                    readOnly />
+                <div
+                    className = {classes}
+                    onClick   = {this.handleClick.bind(this)}>
+                        {this.props.value}
+                </div>
             </div>
         );
     }
