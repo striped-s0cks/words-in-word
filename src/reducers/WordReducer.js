@@ -21,6 +21,7 @@ export default function word( state = initialState, action ) {
         case ec.WORD_INPUT_VALUE: return inputValue(state, action.data);
         case ec.WORD_CLEAR_INPUT: return clearInput(state);
         case ec.WORD_HELP:        return help(state);
+        case ec.WORD_GENERATE:    return generate(state);
 
         default: return state;
     }
@@ -62,6 +63,19 @@ function help(state) {
     const updatedState = _.cloneDeep(state);
 
     _showOneChar(updatedState);
+
+    return updatedState;
+}
+
+function generate(state) {
+    const updatedState = _.cloneDeep(state);
+
+    const generatedWord = wordUtil.getRandomWord();
+
+    updatedState.initialWord = generatedWord;
+    updatedState.words = wordUtil.getAllWords(generatedWord)
+    updatedState.userInput = '';
+    updatedState.status.isEdited = false;
 
     return updatedState;
 }
