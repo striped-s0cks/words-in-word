@@ -23,12 +23,17 @@ class App extends React.Component {
         this.props.help();
     }
 
+    handleWordGenerate() {
+        this.props.generate();
+    }
+
     render() {
         return (
             <div className='App'>
                 <WordButtons
                     onInputClear = {this.handleInputClear.bind(this)}
-                    onHelp       = {this.handleHelp.bind(this)} />
+                    onHelp       = {this.handleHelp.bind(this)}
+                    onGenerate   = {this.handleWordGenerate.bind(this)} />
 
                 <InitialWord
                     value       = {this.props.initialWord}
@@ -66,6 +71,10 @@ function mapDispatchToProps(dispatch) {
 
         help: () => {
             dispatch(actions.word.help());
+        },
+
+        generate: () => {
+            dispatch(actions.word.generate());
         }
     };
 }
