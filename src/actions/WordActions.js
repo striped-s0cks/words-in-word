@@ -24,5 +24,12 @@ export default {
         return {
             type: ec.WORD_GENERATE
         };
+    },
+
+    inputCustom(customWord) {
+        return {
+            type: ec.WORD_INPUT_CUSTOM,
+            data: customWord
+        };
     }
 };
