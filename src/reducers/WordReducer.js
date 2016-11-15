@@ -73,7 +73,7 @@ function generate(state) {
     const generatedWord = wordUtil.getRandomWord();
 
     updatedState.initialWord = generatedWord;
-    updatedState.words = wordUtil.getAllWords(generatedWord)
+    updatedState.words = wordUtil.getAllWords(generatedWord);
     updatedState.userInput = '';
     updatedState.status.isEdited = false;
 
