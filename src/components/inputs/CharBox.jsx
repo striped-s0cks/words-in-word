@@ -37,7 +37,8 @@ export default class CharBox extends React.Component {
                 <div
                     className = {classes}
                     onClick   = {this.handleClick.bind(this)}>
-                        {this.props.value}
+
+                    {this.props.value}
                 </div>
             </div>
         );
