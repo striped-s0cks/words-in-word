@@ -8,7 +8,8 @@ export default class WordButtons extends React.Component {
     render() {
         const {
             onInputClear,
-            onHelp
+            onHelp,
+            onGenerate
         } = this.props;
 
         return (
@@ -16,7 +17,8 @@ export default class WordButtons extends React.Component {
                 <ButtonToolbar className='buttons'>
                     <Button
                         className = 'generateButton'
-                        bsStyle   = 'primary'>
+                        bsStyle   = 'primary'
+                        onClick   = {onGenerate}>
                             New
                     </Button>
 
