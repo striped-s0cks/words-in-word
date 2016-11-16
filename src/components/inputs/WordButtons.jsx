@@ -10,7 +10,8 @@ export default class WordButtons extends React.Component {
             onInputClear,
             onHelp,
             onGenerate,
-            onModalOpen
+            onWordModalOpen,
+            onAboutModalOpen
         } = this.props;
 
         return (
@@ -40,8 +41,15 @@ export default class WordButtons extends React.Component {
                     <Button
                         className = 'customButton'
                         bsStyle   = 'primary'
-                        onClick   = {onModalOpen}>
+                        onClick   = {onWordModalOpen}>
                             Custom
+                    </Button>
+
+                    <Button
+                        className = 'aboutButton'
+                        bsStyle   = 'primary'
+                        onClick   = {onAboutModalOpen}>
+                            About
                     </Button>
                 </ButtonToolbar>
             </div>
