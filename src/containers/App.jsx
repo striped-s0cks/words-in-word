@@ -7,7 +7,8 @@ import WordButtons     from '../components/inputs/WordButtons.jsx';
 import InitialWord     from '../components/other/InitialWord.jsx';
 import UserWord        from '../components/inputs/UserWord.jsx';
 import AllWords        from '../components/other/AllWords.jsx';
-import CustomWordModal from '../components/inputs/CustomWordModal.jsx';
+import CustomWordModal from '../components/modals/CustomWordModal.jsx';
+import AboutModal      from '../components/modals/AboutModal.jsx';
 
 import './App.less';
 
@@ -16,7 +17,8 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            isModalOpen: false
+            isWordModalOpen:  false,
+            isAboutModalOpen: false
         };
     }
 
@@ -36,21 +38,28 @@ class App extends React.Component {
         this.props.generate();
     }
 
-    handleModelOpen() {
+    handleWordModalOpen() {
         this.setState({
-            isModalOpen: true
+            isWordModalOpen: true
+        });
+    }
+
+    handleAboutModalOpen() {
+        this.setState({
+            isAboutModalOpen: true
         });
     }
 
     handleModalClose() {
         this.setState({
-            isModalOpen: false
+            isWordModalOpen:  false,
+            isAboutModalOpen: false
         });
     }
 
     handleCustomInput(customWord) {
         this.setState({
-            isModalOpen: false
+            isWordModalOpen: false
         });
 
         this.props.inputCustom(customWord);
@@ -60,10 +69,11 @@ class App extends React.Component {
         return (
             <div className='App'>
                 <WordButtons
-                    onInputClear = {this.handleInputClear.bind(this)}
-                    onHelp       = {this.handleHelp.bind(this)}
-                    onGenerate   = {this.handleWordGenerate.bind(this)}
-                    onModalOpen  = {this.handleModelOpen.bind(this)} />
+                    onInputClear     = {this.handleInputClear.bind(this)}
+                    onHelp           = {this.handleHelp.bind(this)}
+                    onGenerate       = {this.handleWordGenerate.bind(this)}
+                    onWordModalOpen  = {this.handleWordModalOpen.bind(this)}
+                    onAboutModalOpen = {this.handleAboutModalOpen.bind(this)} />
 
                 <InitialWord
                     value       = {this.props.initialWord}
@@ -77,9 +87,13 @@ class App extends React.Component {
                     words = {this.props.words} />
 
                 <CustomWordModal
-                    isOpen   = {this.state.isModalOpen}
+                    isOpen   = {this.state.isWordModalOpen}
                     onHide   = {this.handleModalClose.bind(this)}
                     onSubmit = {this.handleCustomInput.bind(this)} />
+
+                <AboutModal
+                    isOpen   = {this.state.isAboutModalOpen}
+                    onHide   = {this.handleModalClose.bind(this)} />
             </div>
         );
     }
