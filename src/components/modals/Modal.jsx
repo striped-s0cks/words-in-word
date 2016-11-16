@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Button, Modal as ReactModal } from 'react-bootstrap';
 
+import './Modal.less';
+
 export default class Modal extends React.Component {
     render() {
         const {
@@ -15,12 +17,13 @@ export default class Modal extends React.Component {
             children
         } = this.props;
 
+        const classes = 'Modal ' + className;
         const closeButtonClasses = 'closeButton' + ( isCloseButtonHidden ? 'hidden' : '' );
         const submitButtonClasses = 'submitButton' + ( isSubmitButtonHidden ? ' hidden' : '' );
 
         return (
             <ReactModal
-                className = {className}
+                className = {classes}
                 show      = {isOpen}
                 onHide    = {onHide}>
 
@@ -44,11 +47,18 @@ export default class Modal extends React.Component {
                     <Button
                         className = {submitButtonClasses}
                         bsStyle   = 'primary'
-                        onClick   = {onSave}>
+                        onClick   = {this._unpress.bind(this, onSave)}>
                             Play
                     </Button>
                 </ReactModal.Footer>
             </ReactModal>
         );
+    }
+
+    // button stays pressed after mouseUp
+    _unpress(onClickFunction) {
+        $('button').blur();
+
+        onClickFunction();
     }
 }
