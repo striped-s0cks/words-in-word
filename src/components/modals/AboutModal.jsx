@@ -28,7 +28,7 @@ export default class AboutModal extends React.Component {
                     Click on character to use it. Selected character will be visible under main word.
                     <br/>
                     At the bottom you can see all possible words. When you input valid word,
-                    it will be saved in the bottom area. <br/>
+                    it will be showed in the bottom area. <br/>
                     <br/>
 
                     <b style={headerStyle}> Buttons: </b> <br/>
