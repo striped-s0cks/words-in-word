@@ -20,39 +20,46 @@ export default class WordButtons extends React.Component {
                     <Button
                         className = 'generateButton'
                         bsStyle   = 'primary'
-                        onClick   = {onGenerate}>
+                        onClick   = {this._unpress.bind(this, onGenerate)}>
                             New
                     </Button>
 
                     <Button
                         className = 'clearButton'
                         bsStyle   = 'primary'
-                        onClick   = {onInputClear}>
+                        onClick   = {this._unpress.bind(this, onInputClear)}>
                             Clear
                     </Button>
 
                     <Button
                         className = 'helpButton'
                         bsStyle   = 'primary'
-                        onClick   = {onHelp}>
+                        onClick   = {this._unpress.bind(this, onHelp)}>
                             Help
                     </Button>
 
                     <Button
                         className = 'customButton'
                         bsStyle   = 'primary'
-                        onClick   = {onWordModalOpen}>
+                        onClick   = {this._unpress.bind(this, onWordModalOpen)}>
                             Custom
                     </Button>
 
                     <Button
                         className = 'aboutButton'
                         bsStyle   = 'primary'
-                        onClick   = {onAboutModalOpen}>
+                        onClick   = {this._unpress.bind(this, onAboutModalOpen)}>
                             About
                     </Button>
                 </ButtonToolbar>
             </div>
         );
+    }
+
+    // button stays pressed after mouseUp
+    _unpress(onClickFunction) {
+        $('button').blur();
+
+        onClickFunction();
     }
 }
