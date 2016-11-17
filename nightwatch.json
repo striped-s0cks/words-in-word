@@ -43,7 +43,7 @@
         },
 
         "ci": {
-            "launch_url": "http://localhost:8090",
+            "launch_url": "https://yanasavchenko.github.io/words-in-word/",
             "desiredCapabilities": {
                 "browserName": "firefox",
                 "javascriptEnabled": true,
