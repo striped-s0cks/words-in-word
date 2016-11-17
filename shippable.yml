@@ -12,6 +12,7 @@ addons:
 build:
     ci:
         - npm install
+        - npm run devserver
         - cp index.html.sample index.html
         - export DISPLAY=:99.0
         - xvfb-run --server-args="-ac" npm run test_on_ci
