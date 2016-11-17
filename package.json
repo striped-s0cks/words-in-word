@@ -6,8 +6,7 @@
     "devserver": "webpack-dev-server --debug --hot --inline --content-base --port 8090 --host 0.0.0.0",
     "lint": "eslint src",
     "test": "node ./node_modules/nightwatch/bin/nightwatch -e local",
-    "test_headless": "DISPLAY=:20 xvfb-run --server-args=\"-screen 0 1920x1080x24\" ./node_modules/nightwatch/bin/nightwatch -e local",
-    "test_on_ci": "npm run lint && node ./node_modules/selenium-standalone/bin/selenium-standalone install && npm run test_headless"
+    "test_on_ci": "npm run lint && node ./node_modules/selenium-standalone/bin/selenium-standalone install && npm run test"
   },
   "dependencies": {
     "babel-eslint": "^6.0.4",
