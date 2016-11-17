@@ -1,9 +1,9 @@
 {
-    "src_folders": ["./tests/test/"],
+    "src_folders": ["./tests/test"],
     "output_folder": "./tmp/test_outputs",
     "custom_commands_path": "",
     "custom_assertions_path": "",
-    "page_objects_path": "./tests/lib/pages/",
+    "page_objects_path": "./tests/lib/pages",
     "globals_path": "",
 
     "selenium": {
