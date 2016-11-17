@@ -18,3 +18,9 @@ Demo - https://yanasavchenko.github.io/words-in-word/
 2. yarn run build
 3. remove '/words-in-word' in https://github.com/YanaSavchenko/words-in-word/blob/master/index.html#L15 (because of github pages)
 4. root folder contains bundle. Just open index.html in browser
+
+## RUN NIGHTWATCH TESTS
+1. yarn
+2. selenium-standalone install
+3. yarn run devserver
+4. yarn test (in new CLI window)
