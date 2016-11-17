@@ -5,7 +5,7 @@
     "build": "set NODE_ENV='production' & webpack -p",
     "devserver": "webpack-dev-server --debug --hot --inline --content-base --port 8090 --host 0.0.0.0",
     "lint": "eslint src",
-    "test": "npm run lint & node ./node_modules/selenium-standalone/bin/selenium-standalone install & node ./node_modules/nightwatch/bin/nightwatch -e local"
+    "test": "npm run lint && node ./node_modules/selenium-standalone/bin/selenium-standalone install && node ./node_modules/nightwatch/bin/nightwatch -e local"
   },
   "dependencies": {
     "babel-eslint": "^6.0.4",
