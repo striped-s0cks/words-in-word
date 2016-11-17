@@ -11,7 +11,7 @@ addons:
 
 build:
     ci:
-        - npm install
+        - sudo npm install
         - npm run devserver
         - cp index.html.sample index.html
         - export DISPLAY=:99.0
