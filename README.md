@@ -1,5 +1,6 @@
 # WORDS IN A WORD GAME
 ------------------------------------
+[![Run Status](https://api.shippable.com/projects/582dcb83c5316610006abd20/badge?branch=master)](https://app.shippable.com/projects/582dcb83c5316610006abd20) [![Coverage Badge](https://api.shippable.com/projects/582dcb83c5316610006abd20/coverageBadge?branch=master)](https://app.shippable.com/projects/582dcb83c5316610006abd20)
 
 Built with React, Redux, Webpack.
 
