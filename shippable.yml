@@ -5,12 +5,13 @@ node_js:
 
 services:
     - selenium
-  
+
 addons:
     firefox: "17.0"
-  
+
 build:
     ci:
         - npm install
+        - cp index.html.sample index.html
         - export DISPLAY=:99.0
         - xvfb-run --server-args="-ac" npm run test_on_ci
