@@ -3,7 +3,14 @@ language: node_js
 node_js:
     - 4.4.7
 
+services:
+    - selenium
+  
+addons:
+    firefox: "17.0"
+  
 build:
     ci:
         - npm install
-        - npm run test_on_ci
+        - export DISPLAY=:99.0
+        - xvfb-run --server-args="-ac" npm run test_on_ci
