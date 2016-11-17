@@ -10,5 +10,6 @@ build:
     ci:
         - npm install
         - npm run lint
+        - npm install -g selenium-standalone
         - selenium-standalone install
         - npm run test
