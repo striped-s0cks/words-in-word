@@ -22,5 +22,6 @@ Demo - https://yanasavchenko.github.io/words-in-word/
 
 ## RUN NIGHTWATCH TESTS
 1. yarn
-2. yarn run devserver
-3. yarn test (in new CLI window)
+2. node ./node_modules/selenium-standalone/bin/selenium-standalone install
+3. yarn run devserver
+4. yarn test (in new CLI window)
