@@ -8,17 +8,21 @@
 
     "selenium": {
         "start_process": true,
-        "server_path": "",
+        "server_path": "node_modules/selenium-standalone/.selenium/selenium-server/2.53.1-server.jar",
         "log_path": "./tmp",
         "host": "127.0.0.1",
-        "port": 4444
+        "port": 4444,
+        "cli_args": {
+            "webdriver.chrome.driver": "node_modules/selenium-standalone/.selenium/chromedriver/2.25-x64-chromedriver",
+            "webdriver.ie.driver": ""
+        }
     },
 
     "live_output": true,
 
     "test_settings": {
         "default": {
-            "launch_url": "http://localhost",
+            "launch_url": "http://localhost:3000",
             "selenium_port": 4444,
             "selenium_host": "localhost",
             "silent": true,
