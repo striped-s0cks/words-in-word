@@ -20,15 +20,15 @@ module.exports = {
         noParse: [/autoit.js/],
         loaders: [
             { test: /\.css$/, loader: "style-loader!css-loader" },
-            { test: /\.less$/, loader: "style-loader!css-loader!less-loader"},
-            { test: /\.jsx$/, loader: "react-hot!babel!eslint-loader", exclude: [/node_modules/] },
+            { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+            { test: /\.jsx$/, loader: "react-hot!babel!eslint-loader" },
             { test: /\.js$/, loader: "react-hot!babel!eslint-loader" },
             { test: /\.json$/, loader: "json-loader"}
         ]
     },
 
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['', '.js', '.jsx']
     },
 
     target: 'node',
