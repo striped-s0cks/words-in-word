@@ -21,14 +21,14 @@ module.exports = {
         loaders: [
             { test: /\.css$/, loader: "style-loader!css-loader" },
             { test: /\.less$/, loader: "style-loader!css-loader!less-loader"},
-            { test: /\.jsx$/, loader: "react-hot!babel!eslint-loader", include:__dirname + '/src', exclude: [/node_modules/] },
+            { test: /\.jsx$/, loader: "react-hot!babel!eslint-loader", exclude: [/node_modules/] },
             { test: /\.js$/, loader: "babel!eslint-loader", exclude: [/node_modules/] },
             { test: /\.json$/, loader: "json-loader"}
         ]
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js']
     },
 
     eslint: {
