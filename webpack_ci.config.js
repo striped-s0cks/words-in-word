@@ -31,9 +31,7 @@ module.exports = {
         extensions: ['', '.js']
     },
 
-    node: {
-        'react/lib/ReactMount': 'empty'
-    },
+    target: 'node',
 
     eslint: {
         configFile: '.eslintrc'
