@@ -18,7 +18,7 @@
 
     "test_settings": {
         "default": {
-            "launch_url": "http://localhost:3000",
+            "launch_url": "http://localhost",
             "selenium_port": 4444,
             "selenium_host": "localhost",
             "silent": true,
@@ -27,7 +27,7 @@
                 "path": ""
             },
             "desiredCapabilities": {
-                "browserName": "chrome",
+                "browserName": "firefox",
                 "javascriptEnabled": true,
                 "acceptSslCerts": true
             }
@@ -37,15 +37,6 @@
             "launch_url": "http://localhost:8090",
             "desiredCapabilities": {
                 "browserName": "chrome",
-                "javascriptEnabled": true,
-                "acceptSslCerts": true
-            }
-        },
-
-        "ci": {
-            "launch_url": "https://yanasavchenko.github.io/words-in-word/",
-            "desiredCapabilities": {
-                "browserName": "firefox",
                 "javascriptEnabled": true,
                 "acceptSslCerts": true
             }
