@@ -22,7 +22,7 @@ module.exports = {
             { test: /\.css$/, loader: "style-loader!css-loader" },
             { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
             { test: /\.jsx$/, loader: "react-hot!babel!eslint-loader" },
-            { test: /\.js$/, loader: "react-hot!babel!eslint-loader" },
+            { test: /\.js$/, loader: "babel!eslint-loader" },
             { test: /\.json$/, loader: "json-loader"}
         ]
     },
@@ -30,8 +30,6 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
-
-    target: 'node',
 
     eslint: {
         configFile: '.eslintrc'
