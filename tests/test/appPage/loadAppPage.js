@@ -7,7 +7,7 @@ module.exports = {
 
         appPage.open();
 
-        appPage.waitForElementVisible('@appPage', 3000);
+        appPage.waitForElementVisible('@appPage', 10000);
         appPage.waitForElementVisible('@buttons', 3000);
         appPage.waitForElementVisible('@initialWord', 3000);
         appPage.waitForElementVisible('@userWord', 3000);
