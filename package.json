@@ -7,7 +7,7 @@
     "lint": "eslint src",
     "build_for_ci": "webpack --config webpack_ci.config.js",
     "test": "node ./node_modules/nightwatch/bin/nightwatch -e local",
-    "test_on_ci": "npm run lint && npm run build && node ./node_modules/nightwatch/bin/nightwatch"
+    "test_on_ci": "npm run lint && npm run build_for_ci && node ./node_modules/nightwatch/bin/nightwatch"
   },
   "dependencies": {
     "babel-eslint": "^6.0.4",
