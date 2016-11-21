@@ -7,6 +7,7 @@ module.exports = {
 
         const customWordModal = client.page.customWordModal();
         const modalButtons    = customWordModal.section.buttons;
+        const modalBody       = customWordModal.section.body;
 
         appPage.open();
 
@@ -32,8 +33,12 @@ module.exports = {
             customWordModal.waitForElementVisible('@header', 3000);
             customWordModal.waitForElementVisible('@body', 3000);
             customWordModal.waitForElementVisible('@footer', 3000);
+
             modalButtons.waitForElementVisible('@closeButton', 3000);
             modalButtons.waitForElementVisible('@submitButton', 3000);
+
+            modalBody.waitForElementVisible('@input', 3000);
+            modalBody.waitForElementNotVisible('@label', 3000);
 
             client.pause(500);
             modalButtons.click('@closeButton');
