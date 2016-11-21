@@ -19,7 +19,7 @@ module.exports = {
         client.pause(500);
 
         initialWord.click('@secondChar');
-        client.assert.cssClassPresent('.InitialWord .CharBox:nth-child(1) .char', 'clicked');
+        client.assert.cssClassPresent('.InitialWord .CharBox:nth-child(2) .char', 'clicked');
         client.pause(500);
 
         client.getText('.UserWord', function(text){
