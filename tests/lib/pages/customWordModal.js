@@ -5,6 +5,7 @@ const customWordModalCommands = {
         client.pause(200);
 
         this.section.body.waitForElementVisible('@input', 3000)
+                         .clearValue('@input')
                          .setValue('@input', value);
 
         client.pause(200);
