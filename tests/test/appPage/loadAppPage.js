@@ -52,7 +52,7 @@ module.exports = {
             for ( let index = 1; index <= res.value.length; index++ ) {
                 const className = `li:nth-child(${index}) .Word`;
 
-                this.assert.containsText(className, '_');
+                this.expect.element(className).text.to.not.match(/[a-z]+/);
             }
         });
 
