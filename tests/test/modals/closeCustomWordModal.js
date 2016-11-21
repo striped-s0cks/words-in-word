@@ -12,21 +12,47 @@ module.exports = {
 
         appPage.waitForElementVisible('@appPage', 3000);
         appPage.waitForElementVisible('@buttons', 3000);
+        appPage.waitForElementVisible('@initialWord', 3000);
 
-        pageButtons.click('@customButton');
+        let initialWord = '';
+        let wordAfterClose = '';
 
-        customWordModal.waitForElementVisible('@modal', 3000);
-        customWordModal.waitForElementVisible('@header', 3000);
-        customWordModal.waitForElementVisible('@body', 3000);
-        customWordModal.waitForElementVisible('@footer', 3000);
-        modalButtons.waitForElementVisible('@closeButton', 3000);
-        modalButtons.waitForElementVisible('@submitButton', 3000);
+        client.elements('class name', 'CharBox', function(res) {
+            for ( let index = 1; index <= res.value.length; index++ ) {
+                const className = `.CharBox:nth-child(${index})`;
 
-        client.pause(500);
-        modalButtons.click('@closeButton');
+                this.getText(className, function(text){
+                    initialWord += text.value;
+                });
+            }
+        }).perform( function() {
+            pageButtons.click('@customButton');
 
-        appPage.waitForElementVisible('@appPage', 3000);
-        customWordModal.waitForElementNotPresent('@modal', 3000);
+            customWordModal.waitForElementVisible('@modal', 3000);
+            customWordModal.waitForElementVisible('@header', 3000);
+            customWordModal.waitForElementVisible('@body', 3000);
+            customWordModal.waitForElementVisible('@footer', 3000);
+            modalButtons.waitForElementVisible('@closeButton', 3000);
+            modalButtons.waitForElementVisible('@submitButton', 3000);
+
+            client.pause(500);
+            modalButtons.click('@closeButton');
+
+            appPage.waitForElementVisible('@appPage', 3000);
+            customWordModal.waitForElementNotPresent('@modal', 3000);
+
+            client.elements('class name', 'CharBox', function(res) {
+                for ( let index = 1; index <= res.value.length; index++ ) {
+                    const className = `.CharBox:nth-child(${index})`;
+
+                    this.getText(className, function(text){
+                        wordAfterClose += text.value;
+                    });
+                }
+            })
+        }).perform( function() {
+            client.assert.equal(initialWord, wordAfterClose);
+        });
 
         client.pause(2000);
         client.end();
