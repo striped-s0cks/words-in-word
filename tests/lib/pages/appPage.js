@@ -42,6 +42,14 @@ module.exports = {
                 firstValidWord: 'ul li:nth-child(1)',
                 warning:        '.warning'
             }
+        },
+
+        initialWord: {
+            selector: '.InitialWord',
+            elements: {
+                firstChar:  '.CharBox:nth-child(1)',
+                secondChar: '.CharBox:nth-child(2)'
+            }
         }
     }
 };
