@@ -22,7 +22,10 @@ module.exports = {
         appPage.expect.element('@userWord').text.to.not.equal('');
 
         buttons.click('@clearButton');
+
         appPage.expect.element('@userWord').text.to.equal('');
+        client.assert.cssClassNotPresent('.InitialWord .CharBox:nth-child(1) .char', 'clicked');
+        client.assert.cssClassNotPresent('.InitialWord .CharBox:nth-child(2) .char', 'clicked');
 
         client.pause(2000);
         client.end();
