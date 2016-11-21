@@ -23,6 +23,7 @@ module.exports = {
                 });
             }
         }).perform( function() {
+            client.pause(500);
             buttons.click('@generateButton');
         }).perform( function() {
             appPage.waitForElementVisible('@initialWord', 3000);
