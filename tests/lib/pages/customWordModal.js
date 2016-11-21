@@ -1,10 +1,13 @@
 'use strict';
 
 const customWordModalCommands = {
-    inputValue: function(value) {
-        this.section.body.waitForElementVisible('@input')
-                         .setValue('@input', value)
-                         .pause(200);
+    inputValue: function(client, value) {
+        client.pause(200);
+
+        this.section.body.waitForElementVisible('@input', 3000)
+                         .setValue('@input', value);
+
+        client.pause(200);
 
         return this;
     }
