@@ -32,7 +32,6 @@
     "eslint-plugin-react": "^6.1.2",
     "less-loader": "^2.2.3",
     "nightwatch": "*",
-    "node-static": "*",
     "react-hot-loader": "*",
     "selenium-standalone": "^5.8.0",
     "style-loader": "*",
